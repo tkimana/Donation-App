@@ -1,7 +1,16 @@
+
 const express = require('express')
-const bodyParser= require('body-parser')
-const app= express();
-home.use(bodyParser.json());
-const path = require('path');
-const db = require('./db');
-const collection = ""
+const app= express()
+require('dotenv').config()
+
+app.get('/', (req, res)=>{
+    res.send('hello from node')
+})
+
+
+const port = process.env.PORT || 8000
+
+
+app.listen(port, ()=>{
+    console.log(`the server is running on port ${port}`)
+})
