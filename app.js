@@ -1,4 +1,3 @@
-
 const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv').config()
@@ -14,10 +13,11 @@ app.get('/', (req, res)=>{
 mongoose.connect(process.env.DATABASE, {
     useNewUrlParser: true,
     useCreateIndex: true
+    
 })
 .then(()=> console.log("DB conected"));
 
-const port = process.env.PORT || 8000
+const port = process.env.PORT || 8000;
 
 // route
 app.listen(port, ()=>{
