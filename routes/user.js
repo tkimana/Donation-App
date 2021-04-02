@@ -1,9 +1,13 @@
 const express= require("express")
+
 const router= express.Router()
-const {signup}= require('../controllers/user')
+const {signup, signin}= require('../controllers/user')
+const {userSignupValidator} = require("../validator/index")
 
 
-router.post("/signup", signup);
+// Linking the signup method to the page...
+router.post("/signup", userSignupValidator, signup);
+router.post("/signin",  signin);
 
 
 
