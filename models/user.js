@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const crypto= require('crypto')
 const { v1: uuidv1 } = require('uuid');
-
+// This is a blueprint of how the user should be.
 const userSchema= new mongoose.Schema({
     name:{
         type: String,
@@ -20,7 +20,7 @@ const userSchema= new mongoose.Schema({
         type: String,
         trim: true,
         required: true,
-        unique: true
+        
     },
 
     hashed_password:{
@@ -56,8 +56,12 @@ userSchema.virtual('password')
 .get(()=>{
    return this._password 
 })
-
+// Making password scure
 userSchema.methods={
+//It basically checks if the user is who he/she saying he/she is.
+    authenticate: function(plainText){
+        return this.encryptPassword(plainText) === this.hashed_password;
+    },
     encryptPassword: function(password) {
         if(!password) return '';
         try{
