@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const crypto= require('crypto')
 const { v1: uuidv1 } = require('uuid');
-// This is a blueprint of how the user should be.
+// This is a blueprint of how the user should be. that's what schema means
 const userSchema= new mongoose.Schema({
     name:{
         type: String,
@@ -45,8 +45,6 @@ const userSchema= new mongoose.Schema({
 },{timestamps: true})
 
 // Virtual field
-
-
 userSchema.virtual('password')
 .set(function(password){
     this._password= password
