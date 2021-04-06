@@ -1,7 +1,9 @@
 
 const formidable= require('formidable')
 const _ = require('lodash')
-const School= require("../models/school")
+const fs= require('fs')
+const School= require('../models/school')
+const { errorHandler } = require('../helpers/dbErrorHandler')
 
 exports.create=(req, res)=>{
 let form= new formidable.IncomingForm()
@@ -11,8 +13,20 @@ form.parse(req, (err, fields, files)=>{
         return res.status(400).json({
             error: 'Image could not be uploaded'
         })
-
-        let school = new School(fields)
     }
-})
+        let school = new School(fields)
+        if(files.photo){
+            school.photo.data= fs.readFileSync(files.photo.path)
+            school.photo.contentType= files.photo.type
+        }
+        school.save((err, result)=>{
+            if(err){
+                return res.status(400).json({
+                    error: errorHandler(err)
+                })
+            }
+            res.json(result);
+        })
+    })
 }
+

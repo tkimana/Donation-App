@@ -14,7 +14,6 @@ const schoolSchema= new mongoose.Schema({
         required: true,
         maxlength: 200    
     },
-
     description:{
         type: String,
         required: true,
@@ -22,7 +21,7 @@ const schoolSchema= new mongoose.Schema({
     },
 
     schoolPrincipal:{
-        type: String,
+        type: ObjectId,
         ref: 'SchoolPrincipal',
         required: true
     },
