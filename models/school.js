@@ -22,7 +22,7 @@ const schoolSchema= new mongoose.Schema({
 
     schoolPrincipal:{
         type: ObjectId,
-        ref: 'SchoolPrincipal',
+        ref: "schoolPrincipal",
         required: true
     },
 
