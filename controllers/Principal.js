@@ -1,10 +1,10 @@
-const SchoolPrincipal= require("../models/schoolPrincipal")
+const Principal= require("../models/principal")
 const {errorHandler} = require('../helpers/dbErrorHandler')
 
-// This creates new School
+// This creates new Principal
 exports.create=(req, res)=>{
-    const schoolPrincipal= new SchoolPrincipal(req.body)
-    schoolPrincipal.save((err, data)=>{
+    const principal= new Principal(req.body)
+    principal.save((err, data)=>{
         if(err){
             return res.status(400).json({
                 error: errorHandler(err)

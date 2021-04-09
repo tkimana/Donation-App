@@ -20,9 +20,9 @@ const schoolSchema= new mongoose.Schema({
         maxlength: 2000 
     },
 
-    schoolPrincipal:{
+    Principal:{
         type: ObjectId,
-        ref: "schoolPrincipal",
+        ref: "Principal",
         required: true
     },
 

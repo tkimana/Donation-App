@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 
 // This is a blueprint of how the user should be. that's what schema means
-const schoolPrincipalSchema= new mongoose.Schema({
+const principalSchema= new mongoose.Schema({
     name:{
         type: String,
         trim: true,
@@ -14,4 +14,4 @@ const schoolPrincipalSchema= new mongoose.Schema({
 
 
 
-module.exports= mongoose.model('SchoolPrincipal', schoolPrincipalSchema)
+module.exports= mongoose.model('Principal', principalSchema)
