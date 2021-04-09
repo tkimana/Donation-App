@@ -1,10 +1,10 @@
 const express= require("express")
 const router= express.Router()
-const {create} = require("../controllers/schoolPrincipal")
+const {create} = require("../controllers/principal")
 const {requireSignin, isAuth, isAdmin}= require('../controllers/auth')
 const {userById}= require('../controllers/user')
 
-router.post("/schoolPrincipal/create/:userId", requireSignin, isAdmin, isAuth, create);
+router.post("/principal/create/:userId", requireSignin, isAdmin, isAuth, create);
 
 
 router.param("userId", userById);

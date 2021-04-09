@@ -19,7 +19,6 @@ const userSchema= new mongoose.Schema({
     location:{
         type: String,
         trim: true,
-        required: true,
         
     },
 

@@ -1,10 +1,9 @@
-
 const formidable= require('formidable')
 const _ = require('lodash')
 const fs= require('fs')
 const School= require('../models/school')
 const { errorHandler } = require('../helpers/dbErrorHandler')
-
+// This function is set to create a new school object.
 exports.create=(req, res)=>{
 let form= new formidable.IncomingForm()
 form.keepExtensions= true
