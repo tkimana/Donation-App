@@ -13,8 +13,27 @@ form.parse(req, (err, fields, files)=>{
             error: 'Image could not be uploaded'
         })
     }
-        let school = new School(fields)
+    // check for all fields
+
+   
+        let school = new School(fields);
+
+        const{name, location, description, principal, photo}=fields
+
+        if(!name || !location || !description || !principal || !photo ){
+            return res.status(400).json({
+                error: "All fields are required"
+            })
+        }
+
         if(files.photo){
+            // console.log("FILES PHOTO: ", files.photo)
+            if(files.photo.size > 1000000){
+                return res.status(400).json({
+                    error: 'Image should be less than 1mb in size'
+                })
+            }
+
             school.photo.data= fs.readFileSync(files.photo.path);
             school.photo.contentType= files.photo.type;
         }
