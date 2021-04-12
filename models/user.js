@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const crypto= require('crypto')
 const { v1: uuidv1 } = require('uuid');
-// This is a blueprint of how the user should be. that's what schema means
+// This is a blueprint of how the user should be. And how the schema should look like
 const userSchema= new mongoose.Schema({
     name:{
         type: String,

@@ -1,6 +1,6 @@
 const mongoose= require('mongoose')
 
-// This is a blueprint of how the user should be. that's what schema means
+// This is a blueprint of how the user should be. And how the schema should look like.
 const principalSchema= new mongoose.Schema({
     name:{
         type: String,
