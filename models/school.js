@@ -1,7 +1,7 @@
 const mongoose= require('mongoose')
 const {ObjectId}= mongoose.Schema
 
-// This is a blueprint of how the user should be. that's what schema means
+// This is a blueprint of how the user should be. And how schema should look like
 const schoolSchema= new mongoose.Schema({
     name:{
         type: String,
@@ -20,7 +20,7 @@ const schoolSchema= new mongoose.Schema({
         maxlength: 2000 
     },
 
-    Principal:{
+    principal:{
         type: ObjectId,
         ref: "Principal",
         required: true
