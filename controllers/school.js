@@ -14,18 +14,15 @@ form.parse(req, (err, fields, files)=>{
         })
     }
     // check for all fields
-
-   
         let school = new School(fields);
-
+     // This statement makes it that all fields required
         const{name, location, description, principal, photo}=fields
-
         if(!name || !location || !description || !principal || !photo ){
             return res.status(400).json({
                 error: "All fields are required"
             })
         }
-
+      // This statement is for the photo size
         if(files.photo){
             // console.log("FILES PHOTO: ", files.photo)
             if(files.photo.size > 1000000){
