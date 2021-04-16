@@ -3,6 +3,27 @@ const _ = require('lodash')
 const fs= require('fs')
 const School= require('../models/school')
 const { errorHandler } = require('../helpers/dbErrorHandler')
+
+// This function finds the school by the Id from the database
+exports.schoolById=(req, res, next, id)=>{
+
+// This access the school model and execute 
+ School.findById(id).exec((err, school)=>{
+     if(err || !school){
+        return res.status(400).json({
+            error: 'School Dont exist'
+        })
+     }
+     req.school=school
+     next();
+ })
+}
+
+exports.read=(req, res)=>{
+    req.school.photo= undefined
+    return res.json(req.school, console.log('Not working'))
+    
+}
 // This function is set to create a new school and saving it in the database
 exports.create=(req, res)=>{
 let form= new formidable.IncomingForm()
