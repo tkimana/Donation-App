@@ -22,7 +22,7 @@ form.parse(req, (err, fields, files)=>{
                 error: "All fields are required"
             })
         }
-      // This statement is for the photo size
+      // This statement is for the photo size 
         if(files.photo){
             // console.log("FILES PHOTO: ", files.photo)
             if(files.photo.size > 1000000){
