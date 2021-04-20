@@ -16,12 +16,12 @@ exports.schoolById=(req, res, next, id)=>{
      }
      req.school=school
      next();
- })
-}
-
+ });
+};
+// This function is for displaying the school information
 exports.read=(req, res)=>{
     req.school.photo= undefined
-    return res.json(req.school, console.log('Not working'))  
+    return res.json(req.school)
 }
 // This function is set to create a new school and saving it in the database
 exports.create=(req, res)=>{
@@ -63,5 +63,19 @@ form.parse(req, (err, fields, files)=>{
             res.json(result);
         })
     })
+}
+
+exports.remove=(req, res)=>{
+ let school= req.school
+ school.remove((err)=>{
+     if(err){
+         return res.status(400).json({
+             error: errorHandler(err)
+         })
+     }
+     res.json({
+         message: "School deleted successfully"
+     })
+ })
 }
 
