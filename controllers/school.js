@@ -64,7 +64,7 @@ form.parse(req, (err, fields, files)=>{
         })
     })
 }
-
+// This function removes the school data from the database
 exports.remove=(req, res)=>{
  let school= req.school
  school.remove((err)=>{
