@@ -6,7 +6,6 @@ const { errorHandler } = require('../helpers/dbErrorHandler')
 
 // This function finds the school by the Id from the database
 exports.schoolById=(req, res, next, id)=>{
-
 // This access the school model and execute 
  School.findById(id).exec((err, school)=>{
      if(err || !school){
