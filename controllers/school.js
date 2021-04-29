@@ -114,6 +114,7 @@ exports.update=(req, res)=>{
                 school.photo.data= fs.readFileSync(files.photo.path);
                 school.photo.contentType= files.photo.type;
             }
+            // Saves the school info 
             school.save((err, result)=>{
                 if(err){
                     return res.status(400).json({
