@@ -43,7 +43,7 @@ exports.update=(req, res)=>{
         res.json(data)
     })
 }
-// This is a blue print on updating principal.
+// This is a blue print on updating principal. 
 exports.remove=(req, res)=>{
     const principal= req.principal
     principal.name= req.body.name
