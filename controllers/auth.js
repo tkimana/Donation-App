@@ -59,7 +59,7 @@ exports.requireSignin = expressJwt({
     userProperty: "auth",
   });
 
-
+// This function checks if the user profile and auth is correct.
   exports.isAuth=(req, res, next)=>{
       let user= req.profile && req.auth && req.profile._id ==req.auth._id
       if(!user){
@@ -70,7 +70,7 @@ exports.requireSignin = expressJwt({
       next()
   };
 
-
+// This fuunction checks if the user is an Admin
   exports.isAdmin=(req, res, next)=>{
       if(req.profile.role ===0){
           return res.status(403).json({
